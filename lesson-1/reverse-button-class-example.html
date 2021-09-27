@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        class ReverseButton {
+            constructor({firstText, secondText}) {
+                this._firstText = firstText;
+                this._secondText = secondText;
+                // this._handleClick = this.handleClick.bind(this);
+            }
+
+            // handleClick ({currentTarget}) {
+            //     const {textContent} = currentTarget;
+            //     const {_firstText, _secondText} = this;
+               
+            //     currentTarget.textContent = (textContent === _firstText) ? _secondText : _firstText;
+            // }
+
+            handleClick = ({currentTarget}) => {
+                const {textContent} = currentTarget;
+                const {_firstText, _secondText} = this;
+               
+                currentTarget.textContent = (textContent === _firstText) ? _secondText : _firstText;
+            }
+
+            render() {
+                const elem = document.createElement("button");
+                elem.textContent = this._firstText;
+
+                elem.addEventListener("click", this._handleClick);
+                return elem;
+            }
+        }
+
+        const button1Props = {
+            firstText: "Click me",
+            secondText: "Eat me"
+        };
+
+        const button1 = new ReverseButton(button1Props);
+        document.body.append(button1.render());
+    </script>
+</body>
+</html>
