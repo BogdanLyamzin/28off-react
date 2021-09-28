@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input>
+    <div id="root">
+
+    </div>
+    <script>
+        const render = (elements, container) => {
+            container.append(...elements);
+        }
+        
+        
+        const createElement = (tag, attr) => {
+            const elem = document.createElement(tag);
+            for(const [key, value] of Object.entries(attr)) {
+                elem[key] = value;
+            }
+            return elem;
+        }
+        const props = {
+            textContent: "Click me", 
+            className: "btn"
+        }
+        const button = createElement("button", props);
+        const section = createElement("div", {textContent: "Some text"})
+        const root = document.getElementById("root");
+        render([button, section], root);
+        // const button = document.createElement("button");
+        // button.textContent = "Click me";
+        // button.className = "btn";
+        console.log(document.body.children)
+        // document.body.append(button);
+    </script>
+</body>
+</html>
