@@ -1,0 +1,12 @@
+@import "src/stylesheet/common";
+
+.main {
+  background-color: #dfdfdf;
+  padding: 28px 32px;
+}
+
+.baseInfo {
+  display: grid;
+  grid-template-columns: 144px 1fr;
+  gap: 32px;
+}

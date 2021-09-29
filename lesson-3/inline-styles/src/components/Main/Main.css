@@ -1,0 +1,10 @@
+.main {
+  background-color: #dfdfdf;
+  padding: 28px 32px;
+}
+
+.base-info {
+  display: grid;
+  grid-template-columns: 144px 1fr;
+  gap: 32px;
+}

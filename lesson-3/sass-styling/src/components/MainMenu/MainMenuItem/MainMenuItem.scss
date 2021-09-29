@@ -1,0 +1,31 @@
+@import "src/stylesheet/common";
+
+.main-menu {
+  &-item {
+    margin-bottom: 24px;
+  }
+
+  &-link {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    color: $main-text-color;
+    letter-spacing: 1.25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: baseline;
+
+    &:hover {
+      color: $main-element-color;
+    }
+
+    &.active {
+      color: $main-element-color;
+    }
+  }
+
+  &-icon {
+    margin-right: 26px;
+  }
+}
