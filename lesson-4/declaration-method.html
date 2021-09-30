@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-menu {
+            list-style: none;
+            display: flex;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .main-menu-item {
+            flex: 0 0 100px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-menu-link {
+            width: 100%;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .main-menu-link.active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <ul class="main-menu" id="main-menu">
+        <li class="main-menu-item">
+            <a href="" class="main-menu-link">Item 1</a>
+        </li>
+        <li class="main-menu-item">
+            <a href="" class="main-menu-link">Item 2</a>
+        </li>
+        <li class="main-menu-item">
+            <a href="" class="main-menu-link">Item 3</a>
+        </li>
+    </ul> -->
+    <script>
+        class Menu {
+            constructor({items}){
+                this._items = items;
+                this.activeIndex = null;
+                this._elem = null;
+            }
+
+            handleClick = (e, index)=>{
+                e.preventDefault();
+                this.activeIndex = index;
+                const oldMenu = this._elem;
+                const newMenu = this.render();
+                oldMenu.after(newMenu);
+                oldMenu.remove();
+            }
+
+            render(){
+                const menu = document.createElement("ul");
+                menu.className = "main-menu";
+                const menuElements = this._items.map(({name, link}, index)=> {
+                    const li = document.createElement("li");
+                    li.className = "main-menu-item";
+                    const a = document.createElement("a");
+                    a.classList.add("main-menu-link");
+                    if(index === this.activeIndex){
+                        a.classList.add("active");
+                    }
+                    a.textContent = name;
+                    a.href = link;
+                    li.append(a);
+                    a.addEventListener("click", (e) => this.handleClick(e, index));
+                    this._elem = menu;
+                    return li;
+                });
+                menu.append(...menuElements)
+                return menu;
+            }
+        }
+
+        const menuItems = [
+            {
+                name: "Item 1",
+                link: "#",
+                active: false
+            },
+            {
+                name: "Item 2",
+                link: "#",
+                active: false
+            },
+            {
+                name: "Item 3",
+                link: "#",
+                active: false
+            },            
+        ]
+
+        const mainMenu = new Menu({items: menuItems});
+        document.body.append(mainMenu.render());
+    </script>
+</body>
+
+</html>
