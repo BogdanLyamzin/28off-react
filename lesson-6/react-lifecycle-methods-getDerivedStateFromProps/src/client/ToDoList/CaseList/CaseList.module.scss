@@ -1,0 +1,17 @@
+.item {
+  position: relative;
+  max-width: 120px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.remove {
+  color: red;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  font-size: 8px;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  cursor: pointer;
+}
