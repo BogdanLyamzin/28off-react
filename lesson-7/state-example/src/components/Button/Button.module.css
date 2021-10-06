@@ -1,0 +1,23 @@
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.btnPrimary {
+    color: #fff;
+    background-color: #007bff;
+}
+.btnSecondary {
+    color: #fff;
+    background-color: #4e555b;
+}
+
+.btnSuccess {
+    color: #fff;
+    background-color: #1c7430;
+}   
