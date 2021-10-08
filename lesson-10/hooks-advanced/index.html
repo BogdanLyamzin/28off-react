@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const createCounter = (start = 0, step = 1)=>{
+            const func = () =>{
+                console.log(start);
+                start += step;
+            };
+
+            return func;
+        }
+
+        /* createCounter[[lexicalEnvironment]] = {
+            EnviromentRecords = null,
+            lexicalScope: window
+        }
+        */        
+
+        const counter1 = createCounter(0);
+        /*
+        const localVars1 = {
+            start: 0, 
+            step: 1
+        }
+        createCounter[[lexicalEnvironment]].EnviromentRecords = localVars;
+
+        const func = () =>{
+                console.log(start);
+                start += step;
+            };
+            func[[lexicalEnvironment]] = {
+                EnviromentRecords = null,
+                lexicalScope: localVars1
+            }
+
+            createCounter[[lexicalEnvironment]].EnviromentRecords = null;
+            if(!someHaveLinkTo(localVars1)){
+                delete localVars1
+            }
+        */
+        counter1()
+        counter1()
+        counter1()
+        const counter2 = createCounter(5, 2);
+/*
+        const localVars2 = {
+            start: 5, 
+            step: 2
+        }
+        createCounter[[lexicalEnvironment]].EnviromentRecords = localVars2;
+
+        const func = () =>{
+                console.log(start);
+                start += step;
+            };
+            func[[lexicalEnvironment]] = {
+                EnviromentRecords = null,
+                lexicalScope: localVars2
+            }
+
+            createCounter[[lexicalEnvironment]].EnviromentRecords = null;
+            if(!someHaveLinkTo(localVars1)){
+                delete localVars2
+            }
+        */        
+        counter2()
+        counter2()
+        counter2()
+    </script>
+</body>
+</html>
