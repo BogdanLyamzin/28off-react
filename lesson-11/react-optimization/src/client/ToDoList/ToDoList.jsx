@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, useMemo } from "react";
 
 import Modal from "../../shared/components/Modal/Modal";
 import CaseList from "./CaseList";
@@ -88,7 +88,9 @@ class ToDoList extends Component {
 
         const { addCase, removeCase, showModal, closeModal } = this;
         const { list, isModalOpen } = this.state;
-        const items = list.map(item => ({...item, onRemove: ()=>showModal(item.id)}))
+        const createItems = item => ({...item, onRemove: ()=>showModal(item.id)})
+        // const items = list.map(useMemo(createItems, [list]))
+        const items = list.map(createItems)
 
         return (
             <div className={styles.container}>                
