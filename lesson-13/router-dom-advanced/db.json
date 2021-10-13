@@ -1,0 +1,69 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server 1",
+      "author": "typicode",
+      "content": "Post 1 content",
+      "tags": "new, post, politic"
+    },
+    {
+      "id": 2,
+      "title": "json-server 2",
+      "author": "typicode",
+      "content": "Post 2 content"
+    },
+    {
+      "id": 3,
+      "title": "json-server 3",
+      "author": "typicode",
+      "content": "Post 3 content"
+    },
+    {
+      "id": 4,
+      "title": "json-server 4",
+      "author": "typicode",
+      "content": "Post 4 content"
+    },
+    {
+      "id": 5,
+      "title": "json-server 5",
+      "author": "typicode",
+      "content": "Post 5 content"
+    },
+    {
+      "id": 6,
+      "title": "json-server 6",
+      "author": "typicode",
+      "content": "Post 6 content"
+    },
+    {
+      "id": 7,
+      "title": "json-server 7",
+      "author": "typicode",
+      "content": "Post 7 content"
+    },
+    {
+      "id": 8,
+      "title": "json-server 8",
+      "author": "typicode",
+      "content": "Post 8 content"
+    },
+    {
+      "id": 9,
+      "title": "json-server 9",
+      "author": "typicode",
+      "content": "Post 9 content"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
