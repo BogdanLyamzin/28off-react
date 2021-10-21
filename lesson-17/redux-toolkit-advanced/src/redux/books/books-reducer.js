@@ -6,12 +6,13 @@ import { addToBooks, removeFromBooks } from "./books-actions";
 const booksReducer = createReducer([], {
     [addToBooks]: (store, {payload})=> {
         const newBook = {...payload, id: nanoid()};
-        const newBooks = [...store, newBook];
-        return newBooks;
+        store.push(newBook);
+        // const newBooks = [...store, newBook];
+        // return newBooks;
     },
     [removeFromBooks]: (store, {payload})=> {
-        const updateBooks = store.filter(item => item.id !== payload);
-        return updateBooks;
+        const idx = store.findIndex(({id}) => id === payload);
+        store.splice(idx, 1);
     }
 });
 
