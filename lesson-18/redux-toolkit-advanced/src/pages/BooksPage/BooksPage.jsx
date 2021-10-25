@@ -1,24 +1,30 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import FormAddBook from "../../client/FormAddBook";
 import BookList from "../../client/BookList";
 
-import { addToBooks, removeFromBooks } from "../../redux/books/books-actions";
+import operations from "../../redux/books/books-operations";
+// import { addToBooks, removeFromBooks } from "../../redux/books/books-actions";
 import { getAllBooks } from "../../redux/books/books-selectors";
 
 import styles from "./BooksPage.module.scss";
 
 const BooksPage = ()=> {
-    const books = useSelector(getAllBooks);
+    const {items, loading, error} = useSelector(getAllBooks);
     const dispatch = useDispatch();
 
+    useEffect(()=> {
+        const actionFunc = operations.getBooks();
+        dispatch(actionFunc);
+    }, [dispatch]);
+
     const addBook = (data)=> {
-        const action = addToBooks(data);
-        dispatch(action);
+        dispatch(operations.addBook(data))
     }
 
     const removeBook = (id) => {
-        dispatch(removeFromBooks(id));
+        dispatch(operations.removeBook(id));
     }
 
     return (
@@ -28,7 +34,9 @@ const BooksPage = ()=> {
                 <FormAddBook onSubmit={addBook} />
             </div>
             <div>
-                <BookList list={books} onDelete={removeBook} title="Список книг" />
+                {loading && <p>Loading ....</p>}
+                {error && <p>Sorry, try later</p>}
+                {!loading && !error && <BookList list={items} onDelete={removeBook} title="Список книг" />}
             </div>
         </div>
     )
